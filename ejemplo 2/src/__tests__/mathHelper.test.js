@@ -1,4 +1,4 @@
-const { add, divide } = require('../mathHelper');
+const { add, divide, restar, multiplicacion } = require('../mathHelper');
 
 describe('mathHelper', () => {
 
@@ -27,6 +27,48 @@ describe('mathHelper', () => {
 
     it('lanza error al dividir entre cero', () => {
       expect(() => divide(5, 0)).toThrow('No se puede dividir entre cero.');
+    });
+  });
+
+  describe('restar()', () => {
+    it('resta dos números positivos correctamente', () => {
+      // Arrange
+      const a = 10, b = 4;
+
+      // Act
+      const result = restar(a, b);
+
+      // Assert
+      expect(result).toBe(6);
+    });
+
+    it('resta con resultado negativo', () => {
+      expect(restar(3, 7)).toBe(-4);
+    });
+
+    it('resta con números negativos', () => {
+      expect(restar(-5, -3)).toBe(-2);
+    });
+  });
+
+  describe('multiplicacion()', () => {
+    it('multiplica dos números positivos correctamente', () => {
+      // Arrange
+      const a = 3, b = 4;
+
+      // Act
+      const result = multiplicacion(a, b);
+
+      // Assert
+      expect(result).toBe(12);
+    });
+
+    it('multiplica por cero', () => {
+      expect(multiplicacion(5, 0)).toBe(0);
+    });
+
+    it('multiplica números negativos', () => {
+      expect(multiplicacion(-2, 3)).toBe(-6);
     });
   });
 
